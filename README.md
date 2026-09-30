@@ -16,6 +16,14 @@ Designed and implemented a **Modular Architecture** in n8n by separating the **M
    - **Data Processing:** `Code Node` running optimized JavaScript routines combining `.trim()` and regular expressions (`.replace(/\s+/g, ' ')`) to normalize internal spacing.
    - **Response/Return:** Automatically returns the sanitized array back to the main pipeline, tagged with `processedByModule: true`.
 
+Main Workflow 
+
+<img width="1193" height="833" alt="image" src="https://github.com/user-attachments/assets/7dd76917-3414-4f51-bd99-f4ef41c08f5b" />
+
+Sub Workflow 
+
+<img width="1452" height="852" alt="image" src="https://github.com/user-attachments/assets/f964e140-fffe-47fb-bd53-06d8777ae53e" />
+
 ## 🧰 Tools & Nodes Used
 - **Platform:** n8n (Self-hosted / Cloud)
 - **n8n Nodes:** 
