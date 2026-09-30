@@ -1,0 +1,105 @@
+{
+  "name": "[14. MAIN] Data Pipeline Test",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f14aa8ff-9357-42c4-ab38-1a39ba909296",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d3f26dd7-adc9-4f4c-9445-d3df3e9c1854",
+              "name": "nama",
+              "value": "Muhammad    Husein     ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        176,
+        0
+      ],
+      "id": "c1f4a312-1518-4aed-8bb4-5b35c6aee583",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "lgHjiP7MDPzZrGeO",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/lgHjiP7MDPzZrGeO",
+          "cachedResultName": "13. Sub Workflow"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.4,
+      "position": [
+        352,
+        0
+      ],
+      "id": "bd4c2391-5636-4021-b973-c12408c04045",
+      "name": "Call '13. Sub Workflow'"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Call '13. Sub Workflow'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true
+  },
+  "versionId": "d82ceaa1-eced-4101-997c-477c152d51b0",
+  "meta": {
+    "instanceId": "78020135ce1e18d23f1d2826518029bcddfec44dbf18b7fe235e495f881aa588"
+  },
+  "nodeGroups": [],
+  "id": "ELWGHoVTxGUqN5kW",
+  "tags": []
+}

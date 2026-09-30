@@ -1,0 +1,65 @@
+{
+  "name": "14. Sub Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4eac1f48-8b09-4852-8395-28dacfba9aed",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over incoming data items\nfor (const item of $input.all()) {\n  // Cek apakah properti 'nama' ada\n  if (item.json.nama) {\n    // .trim() membersihkan spasi luar, .replace(/\\s+/g, ' ') merapikan spasi ganda di tengah\n    item.json.nama = item.json.nama.trim().replace(/\\s+/g, ' ');\n  }\n  \n  // Menandai bahwa data ini sudah diproses oleh modul sub-workflow\n  item.json.processedByModule = true;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        192,
+        0
+      ],
+      "id": "df8207d7-e0d4-49f2-a797-05dedb5e379b",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "versionId": "667c3a19-ff23-4cf3-a23b-cad872c6e197",
+  "meta": {
+    "instanceId": "78020135ce1e18d23f1d2826518029bcddfec44dbf18b7fe235e495f881aa588"
+  },
+  "nodeGroups": [],
+  "id": "lgHjiP7MDPzZrGeO",
+  "tags": []
+}
